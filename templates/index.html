@@ -1,0 +1,17 @@
+{{template "header.html"}}
+<div class="hero-unit">
+    <h1>Wat.</h1>
+    <p>OMG guys, I wrote this in Golang. Chiggity check it out. <br/><a href="https://github.com/bradysullivan/gostatic" class="btn btn-large btn-success">Github Repo</a>
+</div>
+<div class="row">
+    <div class="span4">
+        <ul class="nav nav-list">
+            <li class="nav-header">Index</li>
+            {{range .}}<li><a href="view/{{.}}">{{.}}</a></li>{{end}}
+        </ul>
+    </div>
+    <div class="span8">
+        <h2>Bum, bum, bummmmm.</h2>So yeah, this is a blog.
+    </div>
+</div>
+{{template "footer.html"}}
