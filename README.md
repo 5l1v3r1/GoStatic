@@ -1,2 +1,2 @@
-gowiki
+GoStatic
 ======
