@@ -112,5 +112,5 @@ func main() {
 	http.HandleFunc("/view/", makeHandler(viewHandler))
 	http.HandleFunc("/js/", includeHandler)
 	http.HandleFunc("/css/", includeHandler)
-	http.ListenAndServe(":54545", nil)
+	http.ListenAndServe(":80", nil)
 }
