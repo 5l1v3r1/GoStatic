@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"regexp"
 	"strings"
+    "os/exec"
 )
 
 const lenPath = len("/view/")
@@ -107,10 +108,15 @@ func includeHandler(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, filename)
 }
 
+func gitHandler(w http.ResponseWriter, r *http.Request) {
+    exec.Command("git pull", "")
+}
+
 func main() {
 	http.HandleFunc("/", rootHandler)
 	http.HandleFunc("/view/", makeHandler(viewHandler))
 	http.HandleFunc("/js/", includeHandler)
 	http.HandleFunc("/css/", includeHandler)
+    http.HandleFunc("/github_updater/", gitHandler)
 	http.ListenAndServe(":80", nil)
 }
