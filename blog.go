@@ -118,5 +118,5 @@ func main() {
 	http.HandleFunc("/js/", includeHandler)
 	http.HandleFunc("/css/", includeHandler)
     http.HandleFunc("/github_updater/", gitHandler)
-	http.ListenAndServe(":80", nil)
+	http.ListenAndServe(":54545", nil)
 }
