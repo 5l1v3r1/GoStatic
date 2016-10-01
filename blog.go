@@ -5,9 +5,9 @@ import (
 	"html/template"
 	"io/ioutil"
 	"net/http"
+	"os/exec"
 	"regexp"
 	"strings"
-    "os/exec"
 )
 
 const lenPath = len("/view/")
@@ -109,7 +109,7 @@ func includeHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func gitHandler(w http.ResponseWriter, r *http.Request) {
-    exec.Command("git pull", "")
+	exec.Command("git pull", "")
 }
 
 func main() {
@@ -117,6 +117,6 @@ func main() {
 	http.HandleFunc("/view/", makeHandler(viewHandler))
 	http.HandleFunc("/js/", includeHandler)
 	http.HandleFunc("/css/", includeHandler)
-    http.HandleFunc("/github_updater/", gitHandler)
-	http.ListenAndServe(":54545", nil)
+	http.HandleFunc("/github_updater/", gitHandler)
+	http.ListenAndServe(":80", nil)
 }
